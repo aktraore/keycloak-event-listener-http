@@ -105,7 +105,7 @@ public class HTTPEventListenerProvider implements EventListenerProvider {
             
 
             if (this.username != null && this.password != null) {
-                builder.addHeader("Authorization", "Basic " + this.username + ":" + this.password.toCharArray());
+                builder.addHeader("Authorization", Credentials.basic(this.username, this.password));
             }
             
             Request request = builder.post(formBody)
